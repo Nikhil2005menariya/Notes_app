@@ -1,0 +1,542 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body - Attractive Gradient Background */
+body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content */
+.main {
+    flex: 1;
+    width: 80vw;
+    max-width: 1200px;
+    margin: auto;
+   
+    margin-right: 550px;
+}
+
+/* Greeting Section */
+.greeting h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.greeting p {
+    font-size: 1.5rem;
+    color: #bbbbbb;
+    margin-bottom: 20px;
+}
+
+/* Notes Section */
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content:center;
+}
+
+/* Note Card */
+.note-card {
+    background: rgba(255, 255, 255, 0.15);
+    width: 280px;
+    height: 280px;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.note-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.note-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.note-content {
+    font-size: 1rem;
+    color: #d1d1d1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.note-date {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ff4d4f;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background: #d9363e;
+  }
+
+/* New Note Card */
+.newnote-card {
+    background: rgba(255, 255, 255, 0.15);
+    width: 280px;
+    height: 280px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.newnote-card:hover {
+    transform: scale(1.05);
+}
+
+.newnote-btn {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.aside {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Profile Section */
+.profile {
+    padding: 10px;
+}
+
+.profile h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff6b81;
+}
+
+.searchnote {
+    flex: 1;
+}
+
+/* Search Box */
+.searchnote input {
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+/* Search Button */
+.searchnote button {
+    margin-left: 3px ;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    height: 9%; /* Match the input's height */
+}
+
+/* Hover Effect */
+.searchnote button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+
+
+/* Logout Button */
+.logout-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #ff4757;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #e8414d;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 10px;
+    height: 50px;
+    font-size: large;
+    margin-top: 30px;
+}
+
+/* Modal (Note Preview) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* New Note Popup */
+#newNotePopup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Form */
+.popup-content {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Input Fields */
+.popup-content input,
+.popup-content textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+}
+
+/* Save Note Button */
+.popup-content button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.popup-content button:hover {
+    background: #218838;
+}
+
+
+/* Small Profile Update Button */
+.update-profile-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.update-profile-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Profile Update Popup Form */
+#profileUpdatePopup {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+}
+
+.popup-content input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Save Button */
+.popup-content button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.popup-content button:hover {
+    background: #218838;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* Responsive Design */
+/* Note Card */
+.note-card {
+    width: 350px;  /* 280px -> 336px */
+    height: 350px; /* 280px -> 336px */
+    padding: 24px; /* 20px -> 24px */
+}
+
+/* New Note Card */
+.newnote-card {
+    width: 350px;  /* 280px -> 336px */
+    height: 350px; /* 280px -> 336px */
+}
+
+/* Note Title & Content */
+.note-title {
+    font-size: 1.92rem;  /* 1.6rem -> 1.92rem */
+}
+
+.note-content {
+    font-size: 1.2rem;  /* 1rem -> 1.2rem */
+}
+
+.note-date {
+    font-size: 1.08rem;  /* 0.9rem -> 1.08rem */
+}
+
+/* Sidebar */
+.aside {
+    width: 420px;  /* 350px -> 420px */
+    padding: 36px 24px;  /* 30px -> 36px, 20px -> 24px */
+}
+
+/* Profile Section */
+.profile {
+    padding: 12px;  /* 10px -> 12px */
+}
+
+.profile h2 {
+    font-size: 2.4rem;  /* 2rem -> 2.4rem */
+}
+
+/* Search Box */
+.searchnote input {
+    padding: 14px;  /* 12px -> 14px */
+    font-size: 1.2rem;  /* 1rem -> 1.2rem */
+}
+
+/* Logout Button */
+.logout-btn {
+    padding: 14px;  /* 12px -> 14px */
+    font-size: 1.2rem;  /* 1rem -> 1.2rem */
+}
+
+/* Modal Content */
+.modal-content {
+    padding: 36px;  /* 30px -> 36px */
+    max-width: 720px;  /* 600px -> 720px */
+    font-size: 1.2rem;  /* 1rem -> 1.2rem */
+}
+
+/* Popup Form Fields */
+.popup-content input,
+.popup-content textarea {
+    padding: 14px;  /* 12px -> 14px */
+    font-size: 1.2rem;  /* 1rem -> 1.2rem */
+}
+
+/* Save Note Button */
+.popup-content button {
+    padding: 14px;  /* 12px -> 14px */
+    font-size: 1.2rem;  /* 1rem -> 1.2rem */
+}
+
+/* Close Button */
+.close-btn {
+    font-size: 1.8rem;  /* 1.5rem -> 1.8rem */
+}
+
+/* Profile Update Button */
+.update-profile-btn {
+    padding: 7px 12px;  /* 6px 10px -> 7px 12px */
+    font-size: 1.2rem;  /* 1rem -> 1.2rem */
+}
+@media (max-width: 768px) {
+    .main{
+        margin: auto;
+    }
+    .greeting{
+        padding: 10px;
+    }
+    .aside {
+        align-items: center;
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 24px;
+        
+    }
+    .profile{
+        width: 90%;
+    }
+    .searchnote {
+        display: none;
+    }
+
+    .notes {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+

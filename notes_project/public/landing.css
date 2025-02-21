@@ -1,0 +1,271 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Body - Background Gradient */
+body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Header */
+.header {
+    width: 100vw; /* Full viewport width */
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 0; /* Remove border radius for full width */
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.3);
+    position: fixed; /* Fix it to the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ff6b81;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo-icon {
+    margin-right: 12px;
+}
+
+/* Navigation */
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: #ff6b81;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin: 80px 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+/* Email Form */
+.email-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.email-form input {
+    width: 350px;
+    padding: 14px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+.email-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.email-form button {
+    padding: 14px 22px;
+    background: #ff6b81;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+}
+
+.email-form button:hover {
+    background: #e8414d;
+}
+
+/* Trial Note */
+.trial-note {
+    font-size: 1rem;
+    margin-top: 15px;
+    color: #bbb;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 100px 0;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    padding: 25px;
+    width: 320px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-size: 1.1rem;
+    color: #d1d1d1;
+}
+
+/* Call to Action */
+.cta {
+    text-align: center;
+    margin: 120px 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.cta h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.3rem;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 80px;
+}
+
+.footer p {
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+.footer nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer nav a:hover {
+    color: #ff6b81;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .nav {
+        display: none;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-form input {
+        width: 90%;
+        border-radius: 8px;
+    }
+
+    .email-form button {
+        border-radius: 8px;
+        margin-top: 12px;
+        width: 90%;
+    }
+}

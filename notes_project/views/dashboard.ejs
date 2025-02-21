@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Notes Dashboard</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="greeting">
+            <h1>Welcome, <%= username %>!</h1>
+            <p>Here are your notes:</p>
+        </div>
+
+        <div class="notes">
+            <div class="newnote-card" onclick="createNewNote()">
+                <button class="newnote-btn">+ New Note</button>
+            </div>
+            <% for (let i = 0; i < notes.length; i++) { 
+                const note = notes[i];
+                const safeTitle = note.title.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                const safeContent = note.content.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+            %>
+              <div class="note-card" onclick="openNoteModal('<%- safeTitle %>', '<%- safeContent %>')">
+                <button class="delete-btn" onclick="deleteNote(<%= i %>); event.stopPropagation();">✖</button>
+                <h2 class="note-title"><%= note.title %></h2>
+                <p class="note-content"><%= note.content.substring(0, 100) %>...</p> 
+                <span class="note-date">📅 Due: <%= note.date %></span>
+              </div>
+            <% } %>
+            
+            
+                 
+        </div>
+    </div>
+
+    <div class="aside">
+        <div class="profile glass">
+            <h2>Profile</h2>
+            <button class="update-profile-btn" onclick="openProfileUpdateForm()">✏️</button> <!-- Small button -->
+            <p>Name: <span id="profileName"><%= username %></span></p>
+            <p>Email: <span id="profileEmail"><%= email %></span></p>
+        </div>
+        
+
+        <div class="searchnote glass">
+                <input type="text" id="searchInput" placeholder="🔍 Search Notes">
+                <button type="button" onclick="searchNotes()">Search</button>
+        </div>
+
+        <div class="logout glass">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="footer glass">
+        <p>Created by: Nik</p>
+    </div>
+
+    <!-- Note Preview Modal -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeNoteModal()">&times;</span>
+            <h2 id="modalTitle">Note Title</h2>
+            <p id="modalContent">Note content goes here...</p>
+        </div>
+    </div>
+    <div id="notePopup" class="modal">
+        <div class="modal-content glass">
+            <span class="close" onclick="closeNotePopup()">&times;</span>
+            <h2 id="popup-title">Note Title</h2>
+            <p id="popup-content">Full Note Content...</p>
+        </div>
+    </div>
+
+    <!-- New Note Popup Form -->
+    <div id="newNotePopup" class="modal">
+        <div class="popup-content glass">
+            <span class="close-btn" onclick="closeNewNotePopup()">&times;</span>
+            <h2>Create a New Note</h2>
+            <form action="/createnote" method="POST">
+                <input type="text" id="noteTitle" placeholder="Note Title" name="title">
+                <textarea id="noteContent" rows="4" placeholder="Write your note here..." name="content"></textarea>
+                <label for="dueDate">Due Date:</label>
+                <input type="date" id="dueDate" name="date" placeholder="Select a date">
+                <button  type="submit" onclick="saveNote()">Save Note</button>
+            </form>
+        </div>
+    </div>
+    <!-- Profile Update Modal -->
+    <div id="profileUpdatePopup" class="modal">
+        <div class="popup-content glass">
+            <span class="close-btn" onclick="closeProfileUpdateForm()">&times;</span>
+            <h2>Update Profile</h2>
+            <form action="/updateprofile" method="POST">
+                <label for="newName">Name:</label>
+                <input type="text" id="newName" placeholder="Enter new name" name="username">
+
+                <label for="newEmail">Email:</label>
+                <input type="email" id="newEmail" placeholder="Enter new email" name="email">
+
+                <button  type="submit" onclick="saveProfile()">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

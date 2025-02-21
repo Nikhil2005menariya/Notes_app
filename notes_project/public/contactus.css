@@ -1,0 +1,118 @@
+/* Inherit global styles from landing page */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Header same as landing page */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Logo and Navigation */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ff6b81;
+    text-decoration: none;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    margin: 120px 0;
+}
+
+.contact-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-bottom: 40px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    color: #ff6b81;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-item:hover {
+    color: #e8414d;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Footer same as landing page */
+.footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 80px;
+}
+
+.footer p {
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+.footer nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}

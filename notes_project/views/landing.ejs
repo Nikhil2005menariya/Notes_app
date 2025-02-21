@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteNest - Capture Your Thoughts</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <a class="logo" href="/">
+                <span class="logo-icon">🖊️</span>
+                <span class="logo-text">NoteNest</span>
+            </a>
+            <nav class="nav">
+                <a href="/features">Features</a>
+                <a href="#">Pricing</a>
+                <a href="/contactus">Contact Us</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Capture Your Thoughts, Anytime, Anywhere</h1>
+                <p>NoteNest is your digital sanctuary for ideas, inspirations, and important information. Organize, access, and share your notes with ease.</p>
+                <form action="/checkuser" method="POST" class="email-form">
+                    <input type="email" name="email" id="email1" placeholder="Enter your email" required>
+                    <button type="submit">Submit</button>
+                </form>
+                <p class="trial-note">Start your free trial. No credit card required.</p>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="feature-card">
+                    <span class="icon">📚</span>
+                    <h2>Organize with Ease</h2>
+                    <p>Create notebooks, add tags, and structure your notes your way.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🤝</span>
+                    <h2>Collaborate Seamlessly</h2>
+                    <p>Share notes and notebooks with teammates or friends.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🔍</span>
+                    <h2>Find Instantly</h2>
+                    <p>Powerful search helps you find any note in seconds.</p>
+                </div>
+            </section>
+
+            <!-- Call to Action Section -->
+            <section class="cta">
+                <h2>Start Organizing Your Thoughts Today</h2>
+                <p>Join thousands of users who trust NoteNest for their note-taking needs.</p>
+                <form method="post" action="/checkuser" class="email-form">
+                    <input type="email" placeholder="Enter your email" id="email2" name="email" class="email-input" required>
+                    <button type="submit" id="submit_btn2" class="email-button">Sign Up Free</button>
+                </form>
+                
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 NoteNest. All rights reserved.</p>
+            <nav>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>
