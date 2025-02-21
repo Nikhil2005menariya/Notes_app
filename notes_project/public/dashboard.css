@@ -28,11 +28,10 @@ body {
 /* Main Content */
 .main {
     flex: 1;
-    width: 80vw;
+    padding:40px;
     max-width: 1200px;
     margin: auto;
    
-    margin-right: 550px;
 }
 
 /* Greeting Section */
