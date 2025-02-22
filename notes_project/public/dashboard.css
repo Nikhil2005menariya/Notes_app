@@ -167,7 +167,7 @@ body {
 
 .searchnote {
     flex: 1;
-    display: flex; /* Aligns items horizontally */
+ 
     gap: 10px; /* Adds space between input and button */
     
 }
