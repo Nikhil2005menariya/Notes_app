@@ -50,7 +50,7 @@ app.use(session({
     cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
 
-
+//
 // Passport Local Strategy (Email-only auth)
 passport.use(new LocalStrategy(
     { usernameField: 'email', passwordField: 'email' },
