@@ -27,7 +27,7 @@ let Db;
 // Connect to Database
 connectToDb((err) => {
     if (err) {
-        console.log("Failed to connect to the database", err);
+        console.log("Failed to connect to the database", err
     } else {
         console.log("Connected to the database");
         Db = getDb();
