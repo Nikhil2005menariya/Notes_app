@@ -38,11 +38,7 @@ connectToDb((err) => {
     }
 });
 
-// ❌ WRONG ORDER — INTRODUCED BUG
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Session Configuration
+// Session Configuration (1 day expiry)
 app.use(session({
     secret: "your_secret_key",
     resave: false,
@@ -50,7 +46,10 @@ app.use(session({
     cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
 
-//
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Passport Local Strategy (Email-only auth)
 passport.use(new LocalStrategy(
     { usernameField: 'email', passwordField: 'email' },
@@ -92,4 +91,4 @@ passport.deserializeUser(async (id, done) => {
 app.use('/', routes);
 
 // web hook test
-//web oo 
+//web oo no
