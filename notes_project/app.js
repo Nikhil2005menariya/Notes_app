@@ -27,7 +27,7 @@ let Db;
 // Connect to Database
 connectToDb((err) => {
     if (err) {
-        console.log("Failed to connect to the database", err
+        console.log("Failed to connect to the database", err);
     } else {
         console.log("Connected to the database");
         Db = getDb();
@@ -38,9 +38,7 @@ connectToDb((err) => {
     }
 });
 
-// ❌ WRONG ORDER — INTRODUCED BUG
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 // Session Configuration
 app.use(session({
@@ -50,6 +48,8 @@ app.use(session({
     cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
 
+app.use(passport.session());
+app.use(passport.initialize());
 //
 // Passport Local Strategy (Email-only auth)
 passport.use(new LocalStrategy(
